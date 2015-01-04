@@ -75,18 +75,17 @@ public final class R {
         public static final int discard=0x7f060002;
         public static final int errVideoTime=0x7f060003;
         public static final int finalizing=0x7f060004;
-        public static final int hello_world=0x7f060005;
-        public static final int press=0x7f060006;
-        public static final int resolutionHigh=0x7f060007;
-        public static final int resolutionLow=0x7f060008;
-        public static final int resolutionMedium=0x7f060009;
-        public static final int start=0x7f06000a;
-        public static final int stop=0x7f06000b;
-        public static final int txt_continue=0x7f06000c;
-        public static final int txt_finish=0x7f06000d;
-        public static final int txt_start=0x7f06000e;
-        public static final int unable_to_get_file=0x7f06000f;
-        public static final int wait=0x7f060010;
+        public static final int press=0x7f060005;
+        public static final int resolutionHigh=0x7f060006;
+        public static final int resolutionLow=0x7f060007;
+        public static final int resolutionMedium=0x7f060008;
+        public static final int start=0x7f060009;
+        public static final int stop=0x7f06000a;
+        public static final int txt_continue=0x7f06000b;
+        public static final int txt_finish=0x7f06000c;
+        public static final int txt_start=0x7f06000d;
+        public static final int unable_to_get_file=0x7f06000e;
+        public static final int wait=0x7f06000f;
     }
     public static final class style {
         /** 

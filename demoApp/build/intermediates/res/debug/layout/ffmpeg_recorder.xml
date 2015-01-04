@@ -76,4 +76,4 @@
             android:layout_marginLeft="30dp" />
     </RelativeLayout>
 
-</RelativeLayout><!-- From: file:/home/arjan/src/newTouchToRecordDemo/javaCvVideoRecorder/src/main/res/layout/ffmpeg_recorder.xml --><!-- From: file:/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/exploded-aar/newTouchToRecordDemo/javaCvVideoRecorder/unspecified/res/layout/ffmpeg_recorder.xml -->
+</RelativeLayout><!-- From: file:/home/arjan/src/newTouchToRecordDemo/demoApp/src/main/res/layout/ffmpeg_recorder.xml -->

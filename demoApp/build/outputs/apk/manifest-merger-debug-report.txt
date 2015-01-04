@@ -15,7 +15,6 @@ ADDED from AndroidManifest.xml:2:1
 		INJECTED from AndroidManifest.xml:0:0
 application
 ADDED from AndroidManifest.xml:7:5
-MERGED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:27:5
 MERGED from com.android.support:support-v4:21.0.3:16:5
 MERGED from com.android.support:support-v4:21.0.3:16:5
 	android:label
@@ -44,17 +43,16 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:20:17
 	android:name
 		ADDED from AndroidManifest.xml:20:27
-activity#com.javacv.recorder.FFmpegRecorderActivity
-ADDED from AndroidManifest.xml:23:9
-MERGED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:36:9
+activity#com.sourab.touch.to.record.demo.FFmpegRecorderActivity
+ADDED from AndroidManifest.xml:24:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:26:13
-	android:label
-		ADDED from AndroidManifest.xml:25:13
-	android:theme
 		ADDED from AndroidManifest.xml:27:13
+	android:label
+		ADDED from AndroidManifest.xml:26:13
+	android:theme
+		ADDED from AndroidManifest.xml:28:13
 	android:name
-		ADDED from AndroidManifest.xml:24:13
+		ADDED from AndroidManifest.xml:25:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:7:5
@@ -104,9 +102,3 @@ ADDED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:23:5
 		ADDED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:25:9
 	android:name
 		ADDED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:24:9
-uses-library#com.google.android.maps
-ADDED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:32:9
-	android:required
-		ADDED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:34:13
-	android:name
-		ADDED from newTouchToRecordDemo:javaCvVideoRecorder:unspecified:33:13

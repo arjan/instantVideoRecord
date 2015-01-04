@@ -45,4 +45,4 @@
 			android:textColor="#ffffff" 
 			android:singleLine="true"/>
 	</RelativeLayout>
-</LinearLayout><!-- From: file:/home/arjan/src/newTouchToRecordDemo/javaCvVideoRecorder/src/main/res/layout/confirmation_dialog.xml --><!-- From: file:/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/exploded-aar/newTouchToRecordDemo/javaCvVideoRecorder/unspecified/res/layout/confirmation_dialog.xml -->
+</LinearLayout><!-- From: file:/home/arjan/src/newTouchToRecordDemo/demoApp/src/main/res/layout/confirmation_dialog.xml -->
