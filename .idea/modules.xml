@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/demoApp/demoApp.iml" filepath="$PROJECT_DIR$/demoApp/demoApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaCvVideoRecorder/javaCvVideoRecorder.iml" filepath="$PROJECT_DIR$/javaCvVideoRecorder/javaCvVideoRecorder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newTouchToRecordDemo.iml" filepath="$PROJECT_DIR$/newTouchToRecordDemo.iml" />
+    </modules>
+  </component>
+</project>
+

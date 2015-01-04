@@ -1,0 +1,7 @@
+/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/classes/debug
+/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-cfa6c49c939875edfb0cdef0655d0c58f13920f0.jar
+/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/pre-dexed/debug/classes-ff40dde09983c955e26d13081c966741a52c82c1.jar
+/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-8c3f222f473478527c127eda637e57dff7538f59.jar
+/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/pre-dexed/debug/javacpp-643b3a7aa4c28e5dc26547cba61102eb3220e34e.jar
+/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/pre-dexed/debug/classes-f617c4dfb3b5d2e53c8fd0c84a5e608a2d42b15c.jar
+/home/arjan/src/newTouchToRecordDemo/demoApp/build/intermediates/pre-dexed/debug/javacv-0338f4a757ad015285345df1e1ac05bad56e0143.jar
