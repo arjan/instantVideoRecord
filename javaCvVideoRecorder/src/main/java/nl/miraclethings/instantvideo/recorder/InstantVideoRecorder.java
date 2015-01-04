@@ -15,6 +15,7 @@ import com.googlecode.javacv.cpp.opencv_core;
 import java.io.File;
 import java.nio.Buffer;
 import java.nio.ShortBuffer;
+import java.sql.SQLOutput;
 
 import static com.googlecode.javacv.cpp.opencv_core.IPL_DEPTH_8U;
 
@@ -150,6 +151,7 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
         if (!recording) {
             return false;
         }
+        recording = false;
 
         runAudioThread = false;
         // This will make the executor accept no new threads
@@ -168,9 +170,15 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
             @Override
             protected Void doInBackground(Void... params) {
                 strFinalPath = Util.createFinalPath();
-                System.out.println(strVideoPath);
-                System.out.println(strAudioPath);
-                System.out.println(strFinalPath);
+                try {
+                    videoRecorder.stop();
+                    audioRecorder.stop();
+                } catch (FrameRecorder.Exception e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(strVideoPath + " = " + new File(strVideoPath).length());
+
                 Util.combineVideoAndAudio(mContext, strVideoPath, strAudioPath, strFinalPath);
                 return null;
             }
@@ -210,6 +218,7 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
                 try {
                     yuvIplImage.getByteBuffer().put(lastSavedframe.getFrameBytesData());
                     videoRecorder.setTimestamp(lastSavedframe.getTimeStamp());
+                    System.out.println("-frame-");
                     videoRecorder.record(yuvIplImage);
                 } catch (com.googlecode.javacv.FrameRecorder.Exception e) {
                     e.printStackTrace();
@@ -300,11 +309,9 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
         recording = false;
         try {
             if (videoRecorder != null) {
-                videoRecorder.stop();
                 videoRecorder.release();
             }
             if (audioRecorder != null) {
-                audioRecorder.stop();
                 audioRecorder.release();
             }
         } catch (com.googlecode.javacv.FrameRecorder.Exception e) {

@@ -84,7 +84,7 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(nl.miraclethings.instantvideo.recorder.R.layout.ffmpeg_recorder);
+        setContentView(R.layout.ffmpeg_recorder);
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, CLASS_LABEL);
@@ -147,16 +147,16 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
     }
 
     private void initLayout() {
-        previewLayout = (RelativeLayout) (((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(nl.miraclethings.instantvideo.recorder.R.layout.ffmpeg_recorder, null));
-        btnRecorderControl = (Button) previewLayout.findViewById(nl.miraclethings.instantvideo.recorder.R.id.recorder_control);
-        txtTimer = (TextView) previewLayout.findViewById(nl.miraclethings.instantvideo.recorder.R.id.txtTimer);
-        txtRecordingSize = (TextView) previewLayout.findViewById(nl.miraclethings.instantvideo.recorder.R.id.txtRecordingSize);
-        recorderIcon = (ImageView) previewLayout.findViewById(nl.miraclethings.instantvideo.recorder.R.id.recorderIcon);
-        resolutionIcon = (ImageView) previewLayout.findViewById(nl.miraclethings.instantvideo.recorder.R.id.resolutionIcon);
-        flashIcon = (ImageView) previewLayout.findViewById(nl.miraclethings.instantvideo.recorder.R.id.flashIcon);
-        switchCameraIcon = (ImageView) previewLayout.findViewById(nl.miraclethings.instantvideo.recorder.R.id.switchCameraIcon);
-        btnRecorderControl.setText(getResources().getString(nl.miraclethings.instantvideo.recorder.R.string.press));
-        btnRecorderControl.setBackgroundResource(nl.miraclethings.instantvideo.recorder.R.drawable.btn_shutter_normal);
+        previewLayout = (RelativeLayout) (((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.ffmpeg_recorder, null));
+        btnRecorderControl = (Button) previewLayout.findViewById(R.id.recorder_control);
+        txtTimer = (TextView) previewLayout.findViewById(R.id.txtTimer);
+        txtRecordingSize = (TextView) previewLayout.findViewById(R.id.txtRecordingSize);
+        recorderIcon = (ImageView) previewLayout.findViewById(R.id.recorderIcon);
+        resolutionIcon = (ImageView) previewLayout.findViewById(R.id.resolutionIcon);
+        flashIcon = (ImageView) previewLayout.findViewById(R.id.flashIcon);
+        switchCameraIcon = (ImageView) previewLayout.findViewById(R.id.switchCameraIcon);
+        btnRecorderControl.setText(getResources().getString(R.string.press));
+        btnRecorderControl.setBackgroundResource(R.drawable.btn_shutter_normal);
         btnRecorderControl.setVisibility(View.GONE);
         btnRecorderControl.setOnClickListener(this);
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
@@ -238,14 +238,14 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
         else
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        dialog.setContentView(nl.miraclethings.instantvideo.recorder.R.layout.confirmation_dialog);
+        dialog.setContentView(R.layout.confirmation_dialog);
         dialog.setCanceledOnTouchOutside(true);
 
-        ((Button) dialog.findViewById(nl.miraclethings.instantvideo.recorder.R.id.btnDiscard)).setText(getString(nl.miraclethings.instantvideo.recorder.R.string.discard));
-        ((Button) dialog.findViewById(nl.miraclethings.instantvideo.recorder.R.id.btnContinue)).setText(getString(nl.miraclethings.instantvideo.recorder.R.string.txt_continue));
+        ((Button) dialog.findViewById(R.id.btnDiscard)).setText(getString(R.string.discard));
+        ((Button) dialog.findViewById(R.id.btnContinue)).setText(getString(R.string.txt_continue));
 
-        ((Button) dialog.findViewById(nl.miraclethings.instantvideo.recorder.R.id.btnDiscard)).setOnClickListener(this);
-        ((Button) dialog.findViewById(nl.miraclethings.instantvideo.recorder.R.id.btnContinue)).setOnClickListener(this);
+        ((Button) dialog.findViewById(R.id.btnDiscard)).setOnClickListener(this);
+        ((Button) dialog.findViewById(R.id.btnContinue)).setOnClickListener(this);
 
         dialog.show();
     }
@@ -361,23 +361,23 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
     @Override
     public void onClick(View v) {
         List<Camera.Size> resList = Util.getResolutionList(mCamera);
-        if (v.getId() == nl.miraclethings.instantvideo.recorder.R.id.recorder_control) {
+        if (v.getId() == R.id.recorder_control) {
             if (totalTime >= 5000)
                 saveRecording();
             else
-                sendDialog(getResources().getString(nl.miraclethings.instantvideo.recorder.R.string.errVideoTime));
-        } else if (v.getId() == nl.miraclethings.instantvideo.recorder.R.id.flashIcon) {
+                sendDialog(getResources().getString(R.string.errVideoTime));
+        } else if (v.getId() == R.id.flashIcon) {
             if (isFlashOn) {
-                flashIcon.setImageDrawable(getResources().getDrawable(nl.miraclethings.instantvideo.recorder.R.drawable.cameraflashoff));
+                flashIcon.setImageDrawable(getResources().getDrawable(R.drawable.cameraflashoff));
                 isFlashOn = false;
                 cameraParameters.setFlashMode(Parameters.FLASH_MODE_OFF);
             } else {
-                flashIcon.setImageDrawable(getResources().getDrawable(nl.miraclethings.instantvideo.recorder.R.drawable.cameraflash));
+                flashIcon.setImageDrawable(getResources().getDrawable(R.drawable.cameraflash));
                 isFlashOn = true;
                 cameraParameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
             }
             mCamera.setParameters(cameraParameters);
-        } else if (v.getId() == nl.miraclethings.instantvideo.recorder.R.id.switchCameraIcon) {
+        } else if (v.getId() == R.id.switchCameraIcon) {
             cameraSelection = ((cameraSelection == CameraInfo.CAMERA_FACING_BACK) ? CameraInfo.CAMERA_FACING_FRONT : CameraInfo.CAMERA_FACING_BACK);
             initCameraLayout();
 
@@ -390,9 +390,9 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
                     mCamera.setParameters(cameraParameters);
                 }
             }
-        } else if (v.getId() == nl.miraclethings.instantvideo.recorder.R.id.btnContinue) {
+        } else if (v.getId() == R.id.btnContinue) {
             dialog.dismiss();
-        } else if (v.getId() == nl.miraclethings.instantvideo.recorder.R.id.btnDiscard) {
+        } else if (v.getId() == R.id.btnDiscard) {
             dialog.dismiss();
             videoTheEnd(false);
         }
@@ -435,13 +435,13 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
 
         creatingProgress = new Dialog(FFmpegRecorderActivity.this);
         creatingProgress.setCanceledOnTouchOutside(false);
-        creatingProgress.setTitle(getResources().getString(nl.miraclethings.instantvideo.recorder.R.string.finalizing));
+        creatingProgress.setTitle(getResources().getString(R.string.finalizing));
         creatingProgress.show();
         recorderIcon.setVisibility(View.GONE);
         txtTimer.setVisibility(View.INVISIBLE);
-        btnRecorderControl.setText(getResources().getString(nl.miraclethings.instantvideo.recorder.R.string.wait));
+        btnRecorderControl.setText(getResources().getString(R.string.wait));
         btnRecorderControl.setClickable(false);
-        btnRecorderControl.setBackgroundResource(nl.miraclethings.instantvideo.recorder.R.drawable.btn_shutter_normal);
+        btnRecorderControl.setBackgroundResource(R.drawable.btn_shutter_normal);
         resolutionIcon.setVisibility(View.VISIBLE);
         mHandler.removeCallbacks(mUpdateTimeTask);
 
@@ -471,6 +471,6 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
         mHandler.removeCallbacks(mUpdateTimeTask);
         mHandler.postDelayed(mUpdateTimeTask, 100);
         btnRecorderControl.setVisibility(View.VISIBLE);
-        btnRecorderControl.setText(getResources().getString(nl.miraclethings.instantvideo.recorder.R.string.stop));
+        btnRecorderControl.setText(getResources().getString(R.string.stop));
     }
 }
