@@ -1,16 +1,12 @@
-package com.sourab.touch.to.record.demo;
+package nl.miraclethings.instantvideorecorder.demo;
 
-
-import java.io.File;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;

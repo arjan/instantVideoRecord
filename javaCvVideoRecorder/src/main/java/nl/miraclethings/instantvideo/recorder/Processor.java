@@ -129,6 +129,12 @@ public final class Processor
     return process((String[])this.mCommand.toArray(new String[this.mCommand.size()]));
   }
 
+  public Processor setOrientation(int orientation) {
+    this.mCommand.add("-metadata:s:v:0");
+    this.mCommand.add("rotate=" + Integer.toString(orientation));
+    return this;
+  }
+
   public Processor setAudioCopy()
   {
     this.mCommand.add("-acodec");

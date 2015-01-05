@@ -1,4 +1,4 @@
-package com.sourab.touch.to.record.demo;
+package nl.miraclethings.instantvideorecorder.demo;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Parameters;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -21,7 +20,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -96,11 +94,9 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
         screenWidth = displaymetrics.widthPixels;
         screenHeight = displaymetrics.heightPixels;
 
-        mRecorder = new InstantVideoRecorder(this);
+        mRecorder = new InstantVideoRecorder(this, "Recordings");
 
         initLayout();
-
-        startRecording();
     }
 
 
@@ -148,17 +144,18 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
 
     private void initLayout() {
         previewLayout = (RelativeLayout) (((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.ffmpeg_recorder, null));
-        btnRecorderControl = (Button) previewLayout.findViewById(R.id.recorder_control);
+        btnRecorderControl = (Button) previewLayout.findViewById(R.id.stop_control);
         txtTimer = (TextView) previewLayout.findViewById(R.id.txtTimer);
         txtRecordingSize = (TextView) previewLayout.findViewById(R.id.txtRecordingSize);
         recorderIcon = (ImageView) previewLayout.findViewById(R.id.recorderIcon);
         resolutionIcon = (ImageView) previewLayout.findViewById(R.id.resolutionIcon);
         flashIcon = (ImageView) previewLayout.findViewById(R.id.flashIcon);
         switchCameraIcon = (ImageView) previewLayout.findViewById(R.id.switchCameraIcon);
-        btnRecorderControl.setText(getResources().getString(R.string.press));
-        btnRecorderControl.setBackgroundResource(R.drawable.btn_shutter_normal);
-        btnRecorderControl.setVisibility(View.GONE);
+
         btnRecorderControl.setOnClickListener(this);
+
+        previewLayout.findViewById(R.id.start_control).setOnClickListener(this);
+
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
             flashIcon.setOnClickListener(this);
             flashIcon.setVisibility(View.VISIBLE);
@@ -213,7 +210,7 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
             else
                 cameraDevice = Camera.open();
 
-            cameraView = new CameraView(this, cameraDevice);
+            cameraView = new CameraView(this, cameraDevice, cameraSelection == CameraInfo.CAMERA_FACING_FRONT ? 270 : 90);
 
         } catch (Exception e) {
             finish();
@@ -231,26 +228,6 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
         return super.onKeyDown(keyCode, event);
     }
 
-    private void sendDialog(String title) {
-        dialog = new Dialog(FFmpegRecorderActivity.this);
-        if (title != null && title.length() > 0)
-            dialog.setTitle(title);
-        else
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        dialog.setContentView(R.layout.confirmation_dialog);
-        dialog.setCanceledOnTouchOutside(true);
-
-        ((Button) dialog.findViewById(R.id.btnDiscard)).setText(getString(R.string.discard));
-        ((Button) dialog.findViewById(R.id.btnContinue)).setText(getString(R.string.txt_continue));
-
-        ((Button) dialog.findViewById(R.id.btnDiscard)).setOnClickListener(this);
-        ((Button) dialog.findViewById(R.id.btnContinue)).setOnClickListener(this);
-
-        dialog.show();
-    }
-
-
     //---------------------------------------------
     // camera thread, gets and encodes video data
     //---------------------------------------------
@@ -259,16 +236,16 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
         private SurfaceHolder mHolder;
 
 
-        public CameraView(Context context, Camera camera) {
+        public CameraView(Context context, Camera camera, int orientation) {
             super(context);
             mCamera = camera;
             cameraParameters = mCamera.getParameters();
 
             mHolder = getHolder();
             mHolder.addCallback(CameraView.this);
-            mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+//            mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
-            mRecorder.setCamera(mCamera);
+            mRecorder.setCamera(mCamera, orientation);
         }
 
         @Override
@@ -345,27 +322,28 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
 //		cameraParameters.setPreviewFpsRange(1000, frameRate*1000);
 
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.FROYO) {
-            mCamera.setDisplayOrientation(Util.determineDisplayOrientation(FFmpegRecorderActivity.this, defaultCameraId));
-            List<String> focusModes = cameraParameters.getSupportedFocusModes();
-            if (focusModes != null && focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
-                cameraParameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-            }
+        mCamera.setDisplayOrientation(Util.determineDisplayOrientation(FFmpegRecorderActivity.this, defaultCameraId));
+        List<String> focusModes = cameraParameters.getSupportedFocusModes();
+        if (focusModes != null && focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
+            cameraParameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
         }
-//		else
+
         mCamera.setDisplayOrientation(0);
         mCamera.setParameters(cameraParameters);
-
     }
 
     @Override
     public void onClick(View v) {
-        List<Camera.Size> resList = Util.getResolutionList(mCamera);
-        if (v.getId() == R.id.recorder_control) {
-            if (totalTime >= 5000)
-                saveRecording();
-            else
-                sendDialog(getResources().getString(R.string.errVideoTime));
+
+        if (v.getId() == R.id.start_control) {
+            startRecording();
+            findViewById(R.id.stop_control).setVisibility(View.VISIBLE);
+            v.setVisibility(View.GONE);
+        }
+        else if (v.getId() == R.id.stop_control) {
+            saveRecording();
+            findViewById(R.id.stop_control).setVisibility(View.GONE);
+            v.setVisibility(View.VISIBLE);
         } else if (v.getId() == R.id.flashIcon) {
             if (isFlashOn) {
                 flashIcon.setImageDrawable(getResources().getDrawable(R.drawable.cameraflashoff));
@@ -421,7 +399,6 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
         Intent resultIntent = new Intent();
         int resultCode;
         if (valid) {
-            System.out.println("jep");
             resultCode = RESULT_OK;
             resultIntent.setData(mRecorder.getFilePath());
         } else
@@ -450,7 +427,6 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener 
             public void run() {
                 creatingProgress.dismiss();
                 returnToCaller(true);
-                System.out.println("JA");
             }
         });
     }

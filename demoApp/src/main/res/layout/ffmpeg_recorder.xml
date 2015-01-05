@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/flashIcon"
@@ -57,20 +57,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
-
+        android:layout_alignParentBottom="true">
         <Button
-            android:id="@+id/recorder_control"
+            android:id="@+id/start_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/btn_shutter_normal" />
+            android:layout_alignParentRight="true"
+            android:text="start" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/stop_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop" />
 
         <TextView
             android:id="@+id/txtRecordingSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/recorder_control"
+            android:layout_alignBaseline="@id/stop_control"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp" />

@@ -7,7 +7,6 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Environment;
 
 import com.googlecode.javacv.FrameRecorder;
 import com.googlecode.javacv.cpp.opencv_core;
@@ -15,7 +14,6 @@ import com.googlecode.javacv.cpp.opencv_core;
 import java.io.File;
 import java.nio.Buffer;
 import java.nio.ShortBuffer;
-import java.sql.SQLOutput;
 
 import static com.googlecode.javacv.cpp.opencv_core.IPL_DEPTH_8U;
 
@@ -26,18 +24,17 @@ import static com.googlecode.javacv.cpp.opencv_core.IPL_DEPTH_8U;
 public class InstantVideoRecorder implements Camera.PreviewCallback {
 
     private final Context mContext;
+    private final String mFolder;
 
-    private String strAudioPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "rec_audio.mp4";
-    private String strVideoPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "rec_video.mp4";
-    private String strFinalPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "rec_final.mp4";
+    private String strAudioPath;
+    private String strVideoPath;
+    private String strFinalPath;
 
-    private int currentResolution = CONSTANTS.RESOLUTION_MEDIUM_VALUE;
+    private int currentResolution = Constants.RESOLUTION_MEDIUM_VALUE;
 
     private File fileAudioPath = null;
     private File fileVideoPath = null;
-    private Uri uriVideoPath = null;
 
-    private File tempFolderPath = null;
     private int sampleRate = 44100;
     private int frameRate = 30;
     private long frameTime = 0L;
@@ -62,14 +59,12 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
     private SavedFrames lastSavedframe = new SavedFrames(null, 0L);
     private long mVideoTimestamp = 0L;
     private opencv_core.IplImage yuvIplImage;
+    private int mOrientation;
 
-    public InstantVideoRecorder(Context context) {
+    public InstantVideoRecorder(Context context, String folder) {
 
         mContext = context;
-        tempFolderPath = Util.getTempFolderPath();
-        if (tempFolderPath != null)
-            tempFolderPath.mkdirs();
-
+        mFolder = folder;
 
         initAudioRecorder();
         initVideoRecorder();
@@ -78,7 +73,7 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
     private void initAudioRecorder() {
 
         // Create a new unique path for video to be created
-        strAudioPath = Util.createTempPath(tempFolderPath);
+        strAudioPath = Util.createFilePath(mFolder, "tmp", Long.toString(System.currentTimeMillis()));
         RecorderParameters recorderParameters = Util.getRecorderParameter(currentResolution);
 
         sampleRate = recorderParameters.getAudioSamplingRate();
@@ -106,7 +101,7 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
 
 
     private void initVideoRecorder() {
-        strVideoPath = Util.createTempPath(tempFolderPath);
+        strVideoPath = Util.createFilePath(mFolder, "tmp", Long.toString(System.currentTimeMillis()));
         RecorderParameters recorderParameters = Util.getRecorderParameter(currentResolution);
         fileVideoPath = new File(strVideoPath);
         videoRecorder = new FFmpegFrameRecorder(strVideoPath, 320, 240, 1);
@@ -161,6 +156,7 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
         // Wait until all threads are finish
         // pool.awaitTermination(firstTime, null);
         new AsyncTask<Void, Void, Void>() {
+
             @Override
             protected void onPreExecute() {
                 runAudioThread = false;
@@ -169,7 +165,8 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
 
             @Override
             protected Void doInBackground(Void... params) {
-                strFinalPath = Util.createFinalPath();
+                strFinalPath = Util.createFilePath(mFolder, null, Long.toString(System.currentTimeMillis()));
+
                 try {
                     videoRecorder.stop();
                     audioRecorder.stop();
@@ -177,9 +174,8 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
                     e.printStackTrace();
                 }
 
-                System.out.println(strVideoPath + " = " + new File(strVideoPath).length());
+                Util.combineVideoAndAudio(mContext, strVideoPath, strAudioPath, mOrientation, strFinalPath);
 
-                Util.combineVideoAndAudio(mContext, strVideoPath, strAudioPath, strFinalPath);
                 return null;
             }
 
@@ -193,14 +189,15 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
         return true;
     }
 
-    public void setCamera(Camera mCamera) {
+    public void setCamera(Camera mCamera, int orientation) {
         mCamera.setPreviewCallback(this);
+        mOrientation = orientation;
     }
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
             /* get video data */
-        long frameTimeStamp = 0L;
+        long frameTimeStamp;
         if (mAudioTimestamp == 0L && firstTime > 0L)
             frameTimeStamp = 1000L * (System.currentTimeMillis() - firstTime);
         else if (mLastAudioTimestamp == mAudioTimestamp)
@@ -218,7 +215,6 @@ public class InstantVideoRecorder implements Camera.PreviewCallback {
                 try {
                     yuvIplImage.getByteBuffer().put(lastSavedframe.getFrameBytesData());
                     videoRecorder.setTimestamp(lastSavedframe.getTimeStamp());
-                    System.out.println("-frame-");
                     videoRecorder.record(yuvIplImage);
                 } catch (com.googlecode.javacv.FrameRecorder.Exception e) {
                     e.printStackTrace();
