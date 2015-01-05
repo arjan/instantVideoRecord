@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$USER_HOME$/devel/capp/capp-android" external.system.id="GRADLE" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":instantVideoRecorderLib" />
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleDebugTest" />
+        <option name="SOURCE_GEN_TASK_NAME" value="generateDebugSources" />
+        <option name="TEST_SOURCE_GEN_TASK_NAME" value="generateDebugTestSources" />
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../../devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../../devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../../devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/assets" />
+        <option name="LIBRARY_PROJECT" value="true" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/classes/debug" />
+    <exclude-output />
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/r/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/aidl/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/rs/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/res/rs/debug" type="java-resource" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/res/generated/debug" type="java-resource" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/r/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/aidl/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/buildConfig/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/source/rs/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/res/rs/test/debug" type="java-test-resource" />
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/generated/res/generated/test/debug" type="java-test-resource" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/assets" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/bundles" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/classes" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/coverage-instrumented-classes" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/dependency-cache" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/dex" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/dex-cache" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/incremental" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/jacoco" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/javaResources" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/libs" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/lint" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/manifests" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/ndk" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/pre-dexed" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/proguard" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/res" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/rs" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/intermediates/symbols" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/outputs" />
+      <excludeFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/build/tmp" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/aidl">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/aidl" isTestSource="true" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/assets">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/assets" type="java-test-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/java">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/java" isTestSource="true" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/jni">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/jni" isTestSource="true" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/res">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/res" type="java-test-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/resources">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/resources" type="java-test-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/rs">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/androidTest/rs" isTestSource="true" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/aidl">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/aidl" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/assets">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/assets" type="java-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/java">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/java" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/jni">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/jni" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/res">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/res" type="java-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/resources">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/resources" type="java-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/rs">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/debug/rs" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/aidl">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/aidl" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/assets">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/assets" type="java-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/java">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/java" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/jni">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/jni" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/res">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/res" type="java-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/resources">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/resources" type="java-resource" />
+    </content>
+    <content url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/rs">
+      <sourceFolder url="file://$USER_HOME$/devel/capp/capp-android/instantVideoRecorder/instantVideoRecorderLib/src/main/rs" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="javacpp" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="javacv" level="project" />
+  </component>
+</module>
+
